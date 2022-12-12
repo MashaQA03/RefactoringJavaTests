@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+<suite name="Mobile UI Tests">
+    <test name="TEST suite">
+        <classes>
+            <class name="com.incollect.SignUpDeccaTest">
+                <methods>
+                    <include name="SignUpDeccaExTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

@@ -36,9 +36,7 @@ public class SignUpDeccaTest extends WebdriverSettings {
         driver.findElement(By.xpath("//*[@id=\"how_hear-button\"]/span[2]")).click();
         driver.findElement(By.xpath("/html/body/form/div[1]/div/div[13]/input[2]")).click();
         driver.findElement(By.id("registerSubmit")).click();
-
     }
-
     @Test
     public void SignUpDeccaExTest() {
         driver.get("https://www.deccaeurope.com/");
@@ -49,16 +47,18 @@ public class SignUpDeccaTest extends WebdriverSettings {
         homePage.sendFirstName("Maria");
         homePage.sendLastName("Ivanova");
         homePage.sendJobName("Manager");
+        registerPage.waitForPage();
         registerPage.sendPasswordFill("123857hJa");
         registerPage.sendTelephoneFill("+70000000000");
-        registerPage.clickCountryButton();
-        registerPage.clickClick();
-        registerPage.clickCountryZoneButton();
+        registerPage.selectCountry ( "country-button");
+        registerPage.clickCountry();
+        registerPage.selectZone("//*[@id=\"country_zone-button\"]/span[2]");
+        registerPage.clickCityButton();
         registerPage.sendCompanyFill("Test");
+        registerPage.selectBusinessTypeButton("//*[@id=\"business_type-button\"]/span[2]");
         registerPage.clickBusinessTypeButton();
-        registerPage.clickClick2();
+        registerPage.selectHowHearButton("//*[@id=\"how_hear-button\"]/span[2]");
         registerPage.clickHowHearButton();
-        registerPage.clickClick3();
         registerPage.clickRegisterSubmitButton();
     }
 }

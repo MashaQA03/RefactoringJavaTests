@@ -30,30 +30,38 @@ public class HomePage extends BasePage {
     private WebElement jobTitleEditField;
 
     public void waitForPage() {
+        System.out.println("waitForPage homepage");
         waitFor(header);
     }
 
     public void clickHeader() {
+        System.out.println("clickHeader");
         header.click();
     }
 
     public void clickConfirmation() {
+        System.out.println("clickConfirmation");
         confirmationButton.click();
     }
 
     public void clickRegisterButton() {
+        System.out.println("clickRegisterPage");
         registerButton.click();
     }
 
     public void sendFirstName(String value) {
+        System.out.println("firstNameEditField" + value);
         firstNameEditField.sendKeys(value);
     }
 
     public void sendLastName(String value) {
+        System.out.println("sendLastName" + value);
+
         lastNameEditField.sendKeys(value);
     }
 
     public void sendJobName(String value) {
+        System.out.println("jobTitleEditField" + value);
         jobTitleEditField.sendKeys(value);
     }
 

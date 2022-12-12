@@ -4,6 +4,7 @@ import com.incollect.WebdriverSettings;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 public class RegisterPage extends BasePage {
     public RegisterPage() {
@@ -19,76 +20,97 @@ public class RegisterPage extends BasePage {
     @FindBy(id = "telephone")
     private WebElement telephoneFill;
 
-    @FindBy(xpath = "//*[@id=\"country-button\"]/span[2]")
-    private WebElement countryButton;
+    @FindBy(id = "country")
+    private WebElement countryDropDown;
 
     @FindBy(id = "ui-id-185")
-    private WebElement clickClick;
+    private WebElement ClickCountry;
 
-    @FindBy(xpath = "//*[@id=\"country_zone-button\"]/span[2]")
-    private WebElement countryZoneButton;
+
+    @FindBy(id = "zone")
+    private WebElement countryZone;
+
+    @FindBy(id = "ui-id-297")
+    private WebElement ClickCityButton;
 
     @FindBy(id = "company")
     private WebElement companyNameFill;
 
-    @FindBy(xpath = "//*[@id=\"business_type-button\"]/span[2]")
+    @FindBy(id = "btypebutton")
     private WebElement businessTypeButton;
 
-
     @FindBy(xpath = "//*[@id=\"ui-id-458\"]")
-    private WebElement clickClick2;
+    private WebElement clickBusinessTypeButton;
 
-    @FindBy(xpath = "//*[@id=\"how_hear-button\"]/span[2]")
+    @FindBy(id = "how_hear-button")
     private WebElement howHearButton;
 
     @FindBy(xpath = "/html/body/form/div[1]/div/div[13]/input[2]")
-    private WebElement clickClick3;
+    private WebElement clickHowHearButton;
 
     @FindBy(id = "registerSubmit")
     private WebElement registerSubmitButton;
 
+    public void waitForPage() {
+        waitFor(emailFill);
+    }
+
 
     public void sendPasswordFill(String value) {
+        System.out.println("sendPasswordFill" + value);
         passwordFill.sendKeys(value);
     }
 
     public void sendTelephoneFill(String value) {
+        System.out.println("sendTelephoneFill" + value);
         telephoneFill.sendKeys(value);
     }
 
-    public void clickCountryButton() {
-        countryButton.click();
+    public void selectCountry(String value) {
+        new Select(countryDropDown).selectByVisibleText(value);
+
     }
 
-    public void clickClick() {
-        clickClick.click();
+    public void clickCountry() {
+        System.out.println("clickCountry");
+        ClickCountry.click();
     }
 
-    public void clickCountryZoneButton() {
-        countryZoneButton.click();
+    public void selectZone(String value) {
+        new Select(countryZone).selectByVisibleText(value);
+    }
+
+    public void clickCityButton() {
+        System.out.println("clickCityButton");
+        ClickCityButton.click();
     }
 
     public void sendCompanyFill(String value) {
+        System.out.println("sendCompanyFill");
         companyNameFill.sendKeys(value);
     }
 
-    public void clickBusinessTypeButton() {
-        businessTypeButton.click();
+    public void selectBusinessTypeButton(String value) {
+        new Select(businessTypeButton).selectByVisibleText(value);
     }
 
-    public void clickClick2() {
-        clickClick2.click();
+
+    public void clickBusinessTypeButton() {
+        System.out.println("clickBusinessTypeButton");
+        clickBusinessTypeButton.click();
+    }
+
+    public void selectHowHearButton(String value) {
+        new Select(howHearButton).selectByVisibleText(value);
     }
 
     public void clickHowHearButton() {
-        howHearButton.click();
-    }
-
-    public void clickClick3() {
-        clickClick3.click();
+        System.out.println("clickHowHearButton");
+        clickHowHearButton.click();
     }
 
     public void clickRegisterSubmitButton() {
+        System.out.println("registerSubmitButton");
         registerSubmitButton.click();
     }
 
